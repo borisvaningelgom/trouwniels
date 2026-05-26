@@ -1,13 +1,1114 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" style="visibility:hidden">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Eerste Pagina</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Tine &amp; Niels — 29 augustus 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky-soft:   #92BFD0;
+      --sky-deep:   #4A8099;
+      --sky-dark:   #2B566A;
+      --forest:     #3D6645;
+      --sage:       #5E8A65;
+      --moss:       #8AB59A;
+      --cream:      #FAF6EF;
+      --cream-warm: #EFE8D8;
+      --sand:       #D4C4A5;
+      --white:      #FFFFFF;
+      --ink:        #1C2B28;
+      --ink-mid:    #3D5550;
+      --ink-lt:     #5F7570;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2rem;
+      transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+    }
+
+    #nav.scrolled {
+      background: rgba(250,246,239,0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,196,165,0.35);
+    }
+
+    .nav-logo {
+      font-family: 'Parisienne', cursive;
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+
+    #nav.scrolled .nav-logo { color: var(--sky-dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    #nav.scrolled .nav-links a { color: var(--ink-mid); }
+    .nav-links a:hover { color: var(--sky-deep) !important; }
+
+    @media (max-width: 620px) {
+      .nav-links { display: none; }
+      #nav { padding: 1rem 1.25rem; }
+      .hero-countdown { padding: 0.7rem 1.4rem; }
+      .hero-content { padding: 5rem 1.25rem 3rem; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        #5E96B0 0%,
+        #74AABF 12%,
+        #88B9C8 28%,
+        #6FA48F 45%,
+        #4E8462 60%,
+        #3D6B4A 72%,
+        #3A6448 80%,
+        #C8B890 91%,
+        #E2D4B5 100%
+      );
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10,30,45,0.52) 0%,
+        rgba(10,30,45,0.42) 35%,
+        rgba(15,35,25,0.48) 65%,
+        rgba(12,28,20,0.72) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 6rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+    }
+
+    .hero-names {
+      font-family: 'Parisienne', cursive;
+      font-size: clamp(3.8rem, 15vw, 9.5rem);
+      line-height: 0.92;
+      color: #fff;
+      text-shadow: 0 6px 50px rgba(15,40,55,0.35);
+    }
+
+    .hero-names .amp {
+      display: block;
+      font-size: 0.28em;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.55em;
+      color: rgba(255,255,255,0.65);
+      margin: 0.6em 0;
+      text-shadow: none;
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 2rem auto;
+    }
+
+    .hero-date {
+      font-size: clamp(0.95rem, 3vw, 1.35rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.22em;
+    }
+
+    .hero-location {
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.65rem;
+    }
+
+    .hero-countdown {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 4px;
+      padding: 0.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .countdown-number {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.52rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.5rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      animation: scrollHint 2.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollHint {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+      50%       { transform: translateX(-50%) translateY(7px); opacity: 0.9; }
+    }
+
+    /* ─── SHARED SECTION STYLES ─── */
+    .section-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.65rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Parisienne', cursive;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      color: var(--sky-dark);
+      line-height: 1.08;
+      margin-bottom: 1.6rem;
+    }
+
+    .body-text {
+      font-size: 0.92rem;
+      line-height: 1.9;
+      color: var(--ink-mid);
+    }
+
+    .body-text strong { color: var(--ink); font-weight: 500; }
+
+    /* fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── INTRO ─── */
+    .intro-section {
+      background: var(--cream);
+    }
+
+    .intro-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .intro-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 4.5rem 1.5rem;
+      }
+    }
+
+    .intro-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .intro-photo { aspect-ratio: 4/3; }
+    }
+
+    /* ─── PROGRAMME ─── */
+    .programme-section {
+      background: var(--cream-warm);
+    }
+
+    .timeline {
+      margin-top: 2.5rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 1.15rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--sky-soft) 15%,
+        var(--sky-soft) 85%,
+        transparent 100%
+      );
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.4rem;
+      padding: 1.6rem 0;
+      position: relative;
+    }
+
+    .tl-item + .tl-item {
+      border-top: 1px solid rgba(146,191,208,0.15);
+    }
+
+    .tl-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.3rem;
+      gap: 0.5rem;
+    }
+
+    .tl-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--cream-warm);
+      border: 2px solid var(--sky-deep);
+      outline: 3px solid rgba(74,128,153,0.15);
+      flex-shrink: 0;
+    }
+
+    .tl-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .tl-time {
+      font-size: 0.57rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sky-deep);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .tl-name {
+      font-family: 'Parisienne', cursive;
+      font-size: 1.5rem;
+      color: var(--sky-dark);
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+
+    .tl-detail {
+      font-size: 0.84rem;
+      color: var(--ink-lt);
+      line-height: 1.65;
+    }
+
+    .tl-detail a {
+      color: var(--sky-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .shuttle-card {
+      margin-top: 1.8rem;
+      padding: 1.4rem 1.6rem;
+      background: rgba(94,138,101,0.07);
+      border-left: 2px solid var(--sage);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.86rem;
+      line-height: 1.85;
+      color: var(--ink-mid);
+    }
+
+    .shuttle-card strong { color: var(--ink); font-weight: 500; }
+
+    .shuttle-card a {
+      color: var(--sky-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery-section {
+      background: var(--cream);
+      padding: 5.5rem 0;
+    }
+
+    .gallery-header {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .photo-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .photo-item {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .photo-feature {
+      grid-column: 1 / 3;
+      aspect-ratio: 16/7;
+    }
+
+    .photo-square { aspect-ratio: 1; }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease;
+    }
+
+    .photo-item:hover img { transform: scale(1.04); }
+
+    @media (max-width: 600px) {
+      .photo-grid {
+        padding: 0 0.75rem;
+        gap: 0.5rem;
+      }
+
+      .photo-feature { aspect-ratio: 4/3; }
+    }
+
+    /* ─── DRESSCODE ─── */
+    .dresscode-section {
+      background: var(--sky-dark);
+    }
+
+    .dresscode-section .section-tag  { color: var(--moss); }
+    .dresscode-section .section-title { color: rgba(255,255,255,0.95); }
+    .dresscode-section .body-text    { color: rgba(255,255,255,0.7); }
+
+    .dresscode-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.6rem;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.82);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── GIFT ─── */
+    .gift-section { background: var(--cream-warm); }
+
+    .iban-card {
+      margin-top: 1.6rem;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(146,191,208,0.28);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .iban-number {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--sky-dark);
+      flex: 1;
+      letter-spacing: 0.2em;
+      word-spacing: 0.4em;
+    }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid var(--sky-deep);
+      color: var(--sky-deep);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.48rem 0.95rem;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .copy-btn:hover { background: var(--sky-deep); color: var(--white); }
+
+    @media (max-width: 520px) {
+      .iban-card { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .copy-btn { width: 100%; text-align: center; }
+    }
+
+    /* ─── RSVP ─── */
+    .rsvp-section { background: var(--cream); }
+
+    .form-wrap {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(146,191,208,0.22);
+      border-radius: 6px;
+      padding: 2.5rem;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 520px) { .form-wrap { padding: 1.6rem 1.2rem; } }
+
+    .form-block-title {
+      font-family: 'Parisienne', cursive;
+      font-size: 1.6rem;
+      color: var(--sky-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .field { margin-bottom: 1.3rem; }
+
+    .field > label {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.45rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(146,191,208,0.3);
+      border-radius: 3px;
+      padding: 0.75rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--sky-deep);
+      background: #fff;
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .radio-group, .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .radio-item, .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .radio-item input, .check-item input {
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      accent-color: var(--sky-deep);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid rgba(146,191,208,0.14);
+      margin: 1.8rem 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--sky-deep), var(--sky-dark));
+      color: #fff;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 0.4rem;
+    }
+
+    .submit-btn:hover   { opacity: 0.87; }
+    .submit-btn:active  { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .success-msg.show { display: block; }
+
+    .success-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .success-msg h3 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.8rem;
+      color: var(--sky-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .success-msg p {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.85;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      text-align: center;
+      padding: 3.5rem 1.5rem 4.5rem;
+    }
+
+    .footer-names {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.4rem;
+      color: rgba(255,255,255,0.9);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-date {
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.38);
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Hello World!</h1>
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a href="#top" class="nav-logo">T &amp; N</a>
+  <ul class="nav-links">
+    <li><a href="#programma">Programma</a></li>
+    <li><a href="#kledij">Kledij</a></li>
+    <li><a href="#cadeau">Cadeau</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
 
+<!-- ════ HERO ════ -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <img
+    class="hero-photo"
+    src="pictures/PXL_20210914_163657929._exported_1636398131289-EDIT.jpg"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+  >
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Jullie zijn uitgenodigd</p>
+
+    <div class="hero-names" aria-label="Tine en Niels">
+      <span>Tine</span>
+      <span class="amp">&</span>
+      <span>Niels</span>
+    </div>
+
+    <div class="hero-rule" aria-hidden="true"></div>
+
+    <p class="hero-date">29 augustus 2026</p>
+    <p class="hero-location">Herent &nbsp;·&nbsp; Leuven</p>
+
+    <div class="hero-countdown" aria-live="polite">
+      <span class="countdown-number" id="cdDays">—</span>
+      <span class="countdown-label">dagen te gaan</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <path d="M6.5 1.5v10M2 8l4.5 4.5L11 8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ════ INTRO ════ -->
+<section class="intro-section">
+  <div class="intro-inner reveal">
+    <div class="intro-photo">
+      <img
+        src="pictures/IMG_20200502_211622~2-EDIT.jpg"
+        alt="Tine &amp; Niels"
+        loading="lazy"
+      >
+    </div>
+    <div>
+      <p class="section-tag">Welkom</p>
+      <h2 class="section-title">Beste trouwgast</h2>
+      <p class="body-text">
+        We kijken er ontzettend naar uit om jullie op <strong>29 augustus 2026</strong>
+        te mogen verwelkomen op onze trouw. De helft van het trouwpaar houdt van
+        structuur&nbsp;😉 - daarom hieronder alle info om er samen een vlotte en
+        onvergetelijke dag van te maken.
+          
+        Vergeet zeker niet onderaan deze pagina ons te laten weten of je aanwezig bent!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROGRAMME ════ -->
+<section class="programme-section" id="programma">
+  <div class="section-inner reveal">
+    <p class="section-tag">Programma</p>
+    <h2 class="section-title">De dag in twee delen</h2>
+    <p class="body-text">Een dag die begint in een groene tuin en eindigt op de dansvloer.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <span class="tl-icon">🌿</span>
+        </div>
+        <div>
+          <p class="tl-time">14:00 — Ceremonie &amp; walking dinner</p>
+          <p class="tl-name">Tuin van Tine's ouders</p>
+          <p class="tl-detail">
+            <a href="https://maps.google.com/?q=Vaaltweg+23,+3020+Herent" target="_blank" rel="noopener">
+              Vaaltweg 23, 3020 Herent
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot-col">
+          <div class="tl-dot"></div>
+          <span class="tl-icon">🪩</span>
+        </div>
+        <div>
+          <p class="tl-time">20:00 — Dessert &amp; dansfeest</p>
+          <p class="tl-name">De Hoorn, Leuven</p>
+          <p class="tl-detail">
+            <a href="https://maps.google.com/?q=Sluisstraat+79,+3000+Leuven" target="_blank" rel="noopener">
+              Sluisstraat 79, 3000 Leuven
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="shuttle-card">
+      🚌 <strong>Shuttleservice</strong><br>
+      Wij raden aan je wagen te parkeren op
+      <a href="https://www.leuven.be/parkings/nl/wagens/parking-vaartkom" target="_blank" rel="noopener">Parking Vaartkom</a>
+      (€10/24u), op amper 200 meter van De Hoorn.<br><br>
+      🕑 <strong>13:30</strong> — shuttle Parking Vaartkom → Herent<br>
+      🕑 <strong>19:30</strong> — shuttle Herent → De Hoorn
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALLERY ════ -->
+<section class="gallery-section">
+  <div class="gallery-header reveal">
+    <p class="section-tag" style="text-align:center;">Sfeer</p>
+    <h2 class="section-title" style="text-align:center;font-size:clamp(2rem,5vw,3.2rem);">Samen onderweg</h2>
+  </div>
+
+  <div class="photo-grid reveal">
+    <div class="photo-item photo-feature">
+      <img src="pictures/PXL_20221201_121539050-EDIT.jpg" alt="Petra, Jordanië" loading="lazy" style="object-position:center 35%">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/IMG_20200818_195405-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/PXL_20221202_144120216-EDIT.jpg" alt="Wadi Rum, Jordanië" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ════ DRESSCODE ════ -->
+<section class="dresscode-section" id="kledij">
+  <div class="section-inner reveal">
+    <p class="section-tag">Kledij</p>
+    <h2 class="section-title">Dresscode</h2>
+    <p class="body-text">
+      We kijken ernaar uit om jullie feestelijk uitgedost te zien! Hou er wel rekening mee
+      dat het eerste deel van de dag in een <strong style="color:rgba(255,255,255,.92);">tuin</strong> doorgaat.
+    </p>
+    <div class="dresscode-pills">
+      <span class="pill">Feestelijk</span>
+      <span class="pill">Comfort voor de tuin</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GIFT ════ -->
+<section class="gift-section" id="cadeau">
+  <div class="section-inner reveal">
+    <p class="section-tag">Cadeau</p>
+    <h2 class="section-title">Jullie aanwezigheid is ons mooiste cadeau</h2>
+    <p class="body-text">Wie toch graag iets wil schenken, kan dat via ons rekeningnummer:</p>
+    <div class="iban-card">
+      <span class="iban-number">BE62 7330 6373 2161</span>
+      <button class="copy-btn" onclick="copyIban(this)">Kopieer</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RSVP ════ -->
+<section class="rsvp-section" id="rsvp">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-tag">Bevestiging</p>
+      <h2 class="section-title">Laat van je horen</h2>
+      <p class="body-text">
+        Bevestig je aanwezigheid vóór <strong>10 juli 2026</strong> en laat ons weten
+        hoe we rekening met jou kunnen houden.
+      </p>
+    </div>
+
+    <div class="form-wrap reveal" style="transition-delay:0.15s;">
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">🌿</div>
+        <h3>Merci!</h3>
+        <p>We hebben jouw antwoorden goed ontvangen.<br>Tot op 29 augustus!</p>
+      </div>
+
+      <form id="rsvpForm">
+
+        <p class="form-block-title">Jouw gegevens</p>
+
+        <div class="field">
+          <label for="naam">Naam &amp; voornaam *</label>
+          <input type="text" id="naam" name="naam" required placeholder="Jan Janssen">
+        </div>
+
+        <div class="field">
+          <label for="email">E-mailadres</label>
+          <input type="email" id="email" name="email" placeholder="jan@voorbeeld.be">
+        </div>
+
+        <hr class="form-divider">
+        <p class="form-block-title">Aanwezigheid</p>
+
+        <div class="field">
+          <label>Ik kom *</label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="aanwezigheid" value="Ik ben aanwezig" required>
+              Ik ben aanwezig
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="aanwezigheid" value="Ik ben aanwezig met mijn plus one">
+              Ik ben aanwezig met mijn plus one
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="aanwezigheid" value="Ik ben afwezig">
+              Ik ben helaas afwezig
+            </label>
+          </div>
+        </div>
+
+        <hr class="form-divider">
+        <p class="form-block-title">Shuttleservice</p>
+        <p class="body-text" style="font-size:.84rem;margin-bottom:1rem;">Wil je gebruik maken van de gratis shuttle?</p>
+
+        <div class="field">
+          <div class="check-group">
+            <label class="check-item">
+              <input type="checkbox" name="shuttle" value="Shuttle 13:30 Parking Vaartkom → Herent">
+              13:30 — Parking Vaartkom naar Herent
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="shuttle" value="Shuttle 19:30 Herent → De Hoorn">
+              19:30 — Herent naar De Hoorn
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="shuttle" value="Ik regel mijn vervoer zelf">
+              Ik regel mijn vervoer zelf
+            </label>
+          </div>
+        </div>
+
+        <hr class="form-divider">
+        <p class="form-block-title">Voeding</p>
+
+        <div class="field">
+          <label for="dieet">Allergieën of dieetwensen</label>
+          <textarea id="dieet" name="dieet" placeholder="Vegetarisch, glutenvrij, noten-allergie…"></textarea>
+        </div>
+
+        <hr class="form-divider">
+        <p class="form-block-title">Een woordje voor ons</p>
+
+        <div class="field">
+          <label for="boodschap">Persoonlijke wens of boodschap</label>
+          <textarea id="boodschap" name="boodschap" style="min-height:120px;"
+            placeholder="Jullie mooiste woorden krijgen een bijzonder plekje op onze trouwdag…"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Bevestig mijn aanwezigheid</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <span class="footer-names">Tine &amp; Niels</span>
+  <p class="footer-date">29 · 08 · 2026</p>
+</footer>
+
+<script>
+  /* ── Access gate ── */
+  var __valid = new URLSearchParams(location.search).get('k') === 'wG4rK9nP2mX8';
+
+  if (!__valid) {
+    document.documentElement.style.visibility = '';
+    document.title = 'Pagina niet gevonden';
+    document.body.innerHTML =
+      '<style>*{margin:0;box-sizing:border-box}' +
+      'body{font-family:sans-serif;display:flex;align-items:center;' +
+      'justify-content:center;min-height:100vh;background:#faf6ef;color:#bbb}' +
+      '</style><p>Pagina niet gevonden.</p>';
+  } else {
+    document.documentElement.style.visibility = '';
+
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Countdown ── */
+    const wedding = new Date('2026-08-29T14:00:00');
+    const days = Math.ceil((wedding - new Date()) / 864e5);
+    const el = document.getElementById('cdDays');
+    if (el) el.textContent = days > 0 ? days : '🎉';
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Copy IBAN ── */
+    function copyIban(btn) {
+      navigator.clipboard.writeText('BE62733063732161').then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Gekopieerd!';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.disabled = false;
+        }, 2200);
+      });
+    }
+
+    /* ── RSVP form ── */
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwc8CZaaPiHsf3V3xtBecW2Nl2gCsPRuYIjB2ewu4nPJMZDCBjIFUsBcC3N-zcEOVhZ/exec';
+
+    const form    = document.getElementById('rsvpForm');
+    const btn     = document.getElementById('submitBtn');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Even geduld…';
+
+      const shuttleChecked = [...document.querySelectorAll('input[name="shuttle"]:checked')]
+        .map(cb => cb.value)
+        .join(', ');
+
+      const payload = {
+        naam:         document.getElementById('naam').value,
+        email:        document.getElementById('email').value,
+        aanwezigheid: document.querySelector('input[name="aanwezigheid"]:checked')?.value || '',
+        shuttle:      shuttleChecked,
+        dieet:        document.getElementById('dieet').value,
+        boodschap:    document.getElementById('boodschap').value,
+      };
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        // no-cors means we can't read the response, so assume success
+        form.style.display = 'none';
+        success.classList.add('show');
+
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Bevestig mijn aanwezigheid';
+        alert('Geen verbinding. Controleer je internet en probeer opnieuw.');
+      }
+    });
+  }
+</script>
 </body>
 </html>
