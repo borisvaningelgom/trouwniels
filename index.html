@@ -1187,16 +1187,28 @@
         return;
       }
 
+      const aanwezigheidVal = document.querySelector('input[name="aanwezigheid"]:checked')?.value || '';
+      const aantalAanwezig = aanwezigheidVal === 'Ik ben aanwezig met mijn plus one' ? 2
+                           : aanwezigheidVal === 'Ik ben aanwezig' ? 1
+                           : 0;
+
+      const shuttleBoxes = document.querySelectorAll('input[name="shuttle"]');
+      const shuttleHeen  = shuttleBoxes[0].checked ? aantalAanwezig : 0;
+      const shuttleTerug = shuttleBoxes[1].checked ? aantalAanwezig : 0;
+
       btn.disabled = true;
       btn.textContent = 'Even geduld…';
 
       const payload = {
-        naam:         document.getElementById('naam').value,
-        email:        document.getElementById('email').value,
-        aanwezigheid: document.querySelector('input[name="aanwezigheid"]:checked')?.value || '',
-        shuttle:      shuttleChecked,
-        dieet:        document.getElementById('dieet').value,
-        boodschap:    document.getElementById('boodschap').value,
+        naam:           document.getElementById('naam').value,
+        email:          document.getElementById('email').value,
+        aanwezigheid:   aanwezigheidVal,
+        aantalAanwezig: aantalAanwezig,
+        shuttle:        shuttleChecked,
+        shuttleHeen:    shuttleHeen,
+        shuttleTerug:   shuttleTerug,
+        dieet:          document.getElementById('dieet').value,
+        boodschap:      document.getElementById('boodschap').value,
       };
 
       try {
