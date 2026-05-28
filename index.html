@@ -498,14 +498,85 @@
       .photo-feature { aspect-ratio: 4/3; }
     }
 
+    /* ─── GIFT ─── */
+    .gift-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .gift-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4.5rem 1.5rem;
+      }
+    }
+
+    .gift-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .gift-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .gift-photo { aspect-ratio: 4/3; }
+    }
+
     /* ─── DRESSCODE ─── */
     .dresscode-section {
       background: var(--sky-dark);
     }
 
+    .dresscode-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .dresscode-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4.5rem 1.5rem;
+      }
+    }
+
     .dresscode-section .section-tag  { color: var(--moss); }
     .dresscode-section .section-title { color: rgba(255,255,255,0.95); }
     .dresscode-section .body-text    { color: rgba(255,255,255,0.7); }
+
+    .dresscode-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .dresscode-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .dresscode-photo { aspect-ratio: 4/3; }
+    }
 
     .dresscode-pills {
       display: flex;
@@ -522,6 +593,10 @@
       font-size: 0.78rem;
       color: rgba(255,255,255,0.82);
       letter-spacing: 0.03em;
+    }
+
+    .bold {
+      font-weight: 600;
     }
 
     /* ─── GIFT ─── */
@@ -705,6 +780,16 @@
       line-height: 1.85;
     }
 
+    .success-photo {
+      margin: 2rem auto 0;
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--ink);
@@ -754,7 +839,7 @@
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Jullie zijn uitgenodigd</p>
+    <p class="hero-eyebrow">Jullie zijn uitgenodigd op de trouw van</p>
 
     <div class="hero-names" aria-label="Tine en Niels">
       <span>Tine</span>
@@ -838,7 +923,7 @@
         </div>
         <div>
           <p class="tl-time">20:00 — Dessert &amp; dansfeest</p>
-          <p class="tl-name">De Hoorn, Leuven</p>
+          <p class="tl-name">De Hoorn</p>
           <p class="tl-detail">
             <a href="https://maps.google.com/?q=Sluisstraat+79,+3000+Leuven" target="_blank" rel="noopener">
               Sluisstraat 79, 3000 Leuven
@@ -851,6 +936,8 @@
 
     <div class="shuttle-card">
       🚌 <strong>Shuttleservice</strong><br>
+      Om jullie zorgeloos de laten genieten van onze trouwdag en een glaasje (met of zonder alcohol), voorzien we een shuttleservice voor de verplaatsing.
+
       Wij raden aan je wagen te parkeren op
       <a href="https://www.leuven.be/parkings/nl/wagens/parking-vaartkom" target="_blank" rel="noopener">Parking Vaartkom</a>
       (€10/24u), op amper 200 meter van De Hoorn.<br><br>
@@ -860,51 +947,41 @@
   </div>
 </section>
 
-<!-- ════ GALLERY ════ -->
-<section class="gallery-section">
-  <div class="gallery-header reveal">
-    <p class="section-tag" style="text-align:center;">Sfeer</p>
-    <h2 class="section-title" style="text-align:center;font-size:clamp(2rem,5vw,3.2rem);">Samen onderweg</h2>
-  </div>
-
-  <div class="photo-grid reveal">
-    <div class="photo-item photo-feature">
-      <img src="pictures/PXL_20221201_121539050-EDIT.jpg" alt="Petra, Jordanië" loading="lazy" style="object-position:center 35%">
-    </div>
-    <div class="photo-item photo-square">
-      <img src="pictures/IMG_20200818_195405-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
-    </div>
-    <div class="photo-item photo-square">
-      <img src="pictures/PXL_20221202_144120216-EDIT.jpg" alt="Wadi Rum, Jordanië" loading="lazy">
-    </div>
-  </div>
-</section>
-
 <!-- ════ DRESSCODE ════ -->
 <section class="dresscode-section" id="kledij">
-  <div class="section-inner reveal">
-    <p class="section-tag">Kledij</p>
-    <h2 class="section-title">Dresscode</h2>
-    <p class="body-text">
-      We kijken ernaar uit om jullie feestelijk uitgedost te zien! Hou er wel rekening mee
-      dat het eerste deel van de dag in een <strong style="color:rgba(255,255,255,.92);">tuin</strong> doorgaat.
-    </p>
-    <div class="dresscode-pills">
-      <span class="pill">Feestelijk</span>
-      <span class="pill">Comfort voor de tuin</span>
+  <div class="dresscode-inner reveal">
+    <div>
+      <p class="section-tag">Kledij</p>
+      <h2 class="section-title">Dresscode</h2>
+      <p class="body-text">
+        We kijken ernaar uit om jullie feestelijk uitgedost te zien! Hou er wel rekening mee
+        dat het eerste deel van de dag in een <strong style="color:rgba(255,255,255,.92);">tuin</strong> doorgaat.
+      </p>
+      <div class="dresscode-pills">
+        <span class="pill bold">Feestelijk</span>
+        <span class="pill">Comfort voor de tuin</span>
+      </div>
+    </div>
+    <div class="dresscode-photo">
+      <img src="pictures/PXL_20221128_144915390-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ════ GIFT ════ -->
 <section class="gift-section" id="cadeau">
-  <div class="section-inner reveal">
-    <p class="section-tag">Cadeau</p>
-    <h2 class="section-title">Jullie aanwezigheid is ons mooiste cadeau</h2>
-    <p class="body-text">Wie toch graag iets wil schenken, kan dat via ons rekeningnummer:</p>
-    <div class="iban-card">
-      <span class="iban-number">BE62 7330 6373 2161</span>
-      <button class="copy-btn" onclick="copyIban(this)">Kopieer</button>
+  <div class="gift-inner reveal">
+    <div>
+      <p class="section-tag">Cadeau</p>
+      <h2 class="section-title">Jullie aanwezigheid is het mooiste cadeau</h2>
+      <p class="body-text">Wie ons daarnaast graag iets wil schenken, kan dat via ons rekeningnummer:</p>
+      <div class="iban-card">
+        <span class="iban-number">BE62 7330 6373 2161</span>
+        <button class="copy-btn" onclick="copyIban(this)">Kopieer</button>
+      </div>
+    </div>
+    <div class="gift-photo">
+      <img src="pictures/PXL_20240114_123111395~2-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
     </div>
   </div>
 </section>
@@ -916,7 +993,7 @@
       <p class="section-tag">Bevestiging</p>
       <h2 class="section-title">Laat van je horen</h2>
       <p class="body-text">
-        Bevestig je aanwezigheid vóór <strong>10 juli 2026</strong> en laat ons weten
+        Bevestig je aanwezigheid <strong>vóór 10 juli 2026</strong> en laat ons weten
         hoe we rekening met jou kunnen houden.
       </p>
     </div>
@@ -926,6 +1003,7 @@
         <div class="success-icon">🌿</div>
         <h3>Merci!</h3>
         <p>We hebben jouw antwoorden goed ontvangen.<br>Tot op 29 augustus!</p>
+        <img src="pictures/DSCF0492-EDIT.jpg" alt="Tine &amp; Niels" class="success-photo" loading="lazy">
       </div>
 
       <form id="rsvpForm">
@@ -964,11 +1042,11 @@
         </div>
 
         <hr class="form-divider">
-        <p class="form-block-title">Shuttleservice</p>
-        <p class="body-text" style="font-size:.84rem;margin-bottom:1rem;">Wil je gebruik maken van de gratis shuttle?</p>
+        <p class="form-block-title">Onze Shuttleservice</p>
+        <p class="body-text" style="font-size:.84rem;margin-bottom:1rem;">Wil je gebruik maken van de gratis shuttle? *</p>
 
         <div class="field">
-          <div class="check-group">
+          <div class="check-group" id="shuttleGroup">
             <label class="check-item">
               <input type="checkbox" name="shuttle" value="Shuttle 13:30 Parking Vaartkom → Herent">
               13:30 — Parking Vaartkom naar Herent
@@ -982,6 +1060,7 @@
               Ik regel mijn vervoer zelf
             </label>
           </div>
+          <p id="shuttleError" style="display:none;color:#c0392b;font-size:0.78rem;margin-top:0.5rem;letter-spacing:0.02em;">Gelieve een keuze te maken voor de shuttle.</p>
         </div>
 
         <hr class="form-divider">
@@ -998,11 +1077,32 @@
         <div class="field">
           <label for="boodschap">Persoonlijke wens of boodschap</label>
           <textarea id="boodschap" name="boodschap" style="min-height:120px;"
-            placeholder="Jullie mooiste woorden krijgen een bijzonder plekje op onze trouwdag…"></textarea>
+            placeholder="Laat hier een persoonlijke wens achter voor ons. Jullie mooiste woorden krijgen een bijzonder plekje op onze trouwdag…"></textarea>
         </div>
 
         <button type="submit" class="submit-btn" id="submitBtn">Bevestig mijn aanwezigheid</button>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALLERY ════ -->
+<section class="gallery-section">
+  <div class="photo-grid reveal">
+    <div class="photo-item photo-feature">
+      <img src="pictures/PXL_20221201_121539050-EDIT.jpg" alt="Petra, Jordanië" loading="lazy" style="object-position:center 35%">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/IMG_20200818_195405-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/PXL_20221202_144120216-EDIT.jpg" alt="Wadi Rum, Jordanië" loading="lazy">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/PXL_20230415_144743409-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
+    </div>
+    <div class="photo-item photo-square">
+      <img src="pictures/PXL_20231210_075749927-EDIT.jpg" alt="Tine &amp; Niels" loading="lazy">
     </div>
   </div>
 </section>
@@ -1072,14 +1172,26 @@
     const btn     = document.getElementById('submitBtn');
     const success = document.getElementById('successMsg');
 
+    const shuttleError = document.getElementById('shuttleError');
+    document.querySelectorAll('input[name="shuttle"]').forEach(cb => {
+      cb.addEventListener('change', () => { shuttleError.style.display = 'none'; });
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      btn.disabled = true;
-      btn.textContent = 'Even geduld…';
 
       const shuttleChecked = [...document.querySelectorAll('input[name="shuttle"]:checked')]
         .map(cb => cb.value)
         .join(', ');
+
+      if (!shuttleChecked) {
+        shuttleError.style.display = 'block';
+        document.getElementById('shuttleGroup').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Even geduld…';
 
       const payload = {
         naam:         document.getElementById('naam').value,
@@ -1101,6 +1213,7 @@
         // no-cors means we can't read the response, so assume success
         form.style.display = 'none';
         success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
       } catch {
         btn.disabled = false;
